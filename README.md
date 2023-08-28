@@ -1,5 +1,8 @@
 # xls2csv
-convert microsoft xlsx to csv
+
+Fast conversion of microsoft xlsx to csv. 
+
+Built using C as cross-compiled static musl executable.
 
 ### example
 
