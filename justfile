@@ -6,7 +6,7 @@ build-linux: docker-build-linux
     /usr/local/musl/lib/libxlsxio_read.a \
     /usr/local/musl/lib/libxlsxio_write.a \
     /usr/local/musl/lib/libexpat.a \
-    /usr/local/lib/libminizip.a \
+    /usr/lib/x86_64-linux-gnu/libminizip.a \
     /usr/local/musl/lib/libz.a \
     -pthread -DBUILD_XLSXIO_STATIC -O3 \
     -o xls2csv-linux \
