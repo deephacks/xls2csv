@@ -1,3 +1,6 @@
+# shellcheck disable=all
+set export
+set dotenv-load
 
 HOME     := env_var("HOME")
 BIN_DIR  := env_var_or_default("XDG_BIN_HOME", HOME / ".local" / "bin")
