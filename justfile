@@ -1,7 +1,12 @@
 
+HOME     := env_var("HOME")
+BIN_DIR  := env_var_or_default("XDG_BIN_HOME", HOME / ".local" / "bin")
+
 IMAGE := "xls2csv"
 
-build-linux: docker-build-linux
+default: build test install
+
+build: docker-build-linux
   just run-linux "gcc xls2csv.c -static \
     /usr/local/musl/lib/libxlsxio_read.a \
     /usr/local/musl/lib/libxlsxio_write.a \
@@ -24,8 +29,8 @@ test:
   ./xls2csv-linux example.xlsx
 
 # build and extract from container, then install the xls2csv executable on host
-install: docker-build-linux
-  sudo install -v -m755 xls2csv /usr/local/bin
+install:
+  sudo install -v -m755 xls2csv-linux {{BIN_DIR}}/xls2csv
 
 # run command inside container, mounting current dir as working dir
 run-linux +cmd:
