@@ -37,4 +37,4 @@ install:
 
 # run command inside container, mounting current dir as working dir
 run-linux +cmd:
-  docker run -it --rm -v "$(pwd):/app" -w /app "{{IMAGE}}:linux" bash -c '{{cmd}}'
+  docker run -i --rm -v "$(pwd):/app" -w /app "{{IMAGE}}:linux" bash -c '{{cmd}}'
